@@ -18,6 +18,7 @@ button {
   background-color: inherit;
   color: inherit;
   border: none;
+  cursor: pointer;
 }
 
 #below-cover {
