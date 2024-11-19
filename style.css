@@ -38,6 +38,7 @@ button {
 
 .button {
   font-size: 1.5em;
+  cursor: pointer;
 }
 
 .button-navigate {
@@ -74,6 +75,7 @@ button {
   height: 3px;
   width: 100%;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 #current-progress {
@@ -86,4 +88,9 @@ button {
 
 #progress-container {
   padding-bottom: 1em;
+  cursor: pointer;
+}
+
+.button-active {
+  color: rgb(0, 183, 107);
 }
