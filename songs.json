@@ -1,0 +1,23 @@
+[
+  {
+    "songName": "Way Much Better",
+    "artist": "Daniel Lavor",
+    "file": "way_much_better",
+    "imageExt": "png",
+    "liked": false
+  },
+  {
+    "songName": "Demons",
+    "artist": "Boyce",
+    "file": "demons_boyce",
+    "imageExt": "jpg",
+    "liked": false
+  },
+  {
+    "songName": "Shivers",
+    "artist": "Jonah Baker",
+    "file": "shivers",
+    "imageExt": "png",
+    "liked": false
+  }
+]

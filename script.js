@@ -15,30 +15,6 @@ const repeatButton = document.getElementById("repeat");
 const songTime = document.getElementById("song-time");
 const totalTime = document.getElementById("total-time");
 
-const wayMuchBetter = {
-  songName: "Way Much Better",
-  artist: "Daniel Lavor",
-  file: "way_much_better",
-  imageExt: "png",
-  liked: false,
-};
-
-const demons = {
-  songName: "Demons",
-  artist: "Boyce",
-  file: "demons_boyce",
-  imageExt: "jpg",
-  liked: false,
-};
-
-const shivers = {
-  songName: "Shivers",
-  artist: "Jonah Baker",
-  file: "shivers",
-  imageExt: "png",
-  liked: false,
-};
-
 let isPlaying = false;
 let isShuffle = false;
 let repeatOn = false;
@@ -49,6 +25,18 @@ const originalPlaylist = JSON.parse(localStorage.getItem("playlist")) ?? [
 ];
 let sortedPlaylist = [...originalPlaylist];
 let index = 0;
+
+async function loadSongs() {
+  try {
+    const response = await fetch("./songs.json");
+    const data = await response.json();
+    originalPlaylist = data;
+    sortedPlaylist = [...originalPlaylist];
+    initializeSong();
+  } catch (error) {
+    console.error("Erro ao carregar as músicas:", error);
+  }
+}
 
 function playSong() {
   play.querySelector(".bi").classList.remove("bi-play-circle-fill");
