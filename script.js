@@ -1,19 +1,21 @@
 "use strict";
 
-const songName = document.getElementById("song-name");
-const bandName = document.getElementById("band-name");
-const song = document.getElementById("audio");
-const cover = document.getElementById("cover");
-const play = document.getElementById("play"); // Botão play
-const next = document.getElementById("next"); // Botão next
-const previous = document.getElementById("previous"); // Botão previous
-const likeButton = document.getElementById("like");
-const currentProgress = document.getElementById("current-progress");
-const progressContainer = document.getElementById("progress-container");
-const shuffleButton = document.getElementById("shuffle");
-const repeatButton = document.getElementById("repeat");
-const songTime = document.getElementById("song-time");
-const totalTime = document.getElementById("total-time");
+const $ = (id) => document.getElementById(id);
+
+const songName = $("song-name");
+const bandName = $("band-name");
+const song = $("audio");
+const cover = $("cover");
+const play = $("play");
+const next = $("next");
+const previous = $("previous");
+const likeButton = $("like");
+const currentProgress = $("current-progress");
+const progressContainer = $("progress-container");
+const shuffleButton = $("shuffle");
+const repeatButton = $("repeat");
+const songTime = $("song-time");
+const totalTime = $("total-time");
 
 let isPlaying = false;
 let isShuffle = false;
