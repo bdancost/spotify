@@ -20,11 +20,7 @@ const totalTime = $("total-time");
 let isPlaying = false;
 let isShuffle = false;
 let repeatOn = false;
-const originalPlaylist = JSON.parse(localStorage.getItem("playlist")) ?? [
-  wayMuchBetter,
-  demons,
-  shivers,
-];
+let originalPlaylist = JSON.parse(localStorage.getItem("playlist")) ?? [];
 let sortedPlaylist = [...originalPlaylist];
 let index = 0;
 
@@ -173,16 +169,23 @@ function updateTotalTime() {
 }
 
 function likeButtonCliked() {
-  if (sortedPlaylist[index].liked === false) {
-    sortedPlaylist[index].liked = true;
+  const originalIndex = originalPlaylist.findIndex(
+    (song) => song.file === sortedPlaylist[index].file
+  );
+  if (originalPlaylist[originalIndex].liked === false) {
+    originalPlaylist[originalIndex].liked = true;
   } else {
-    sortedPlaylist[index].liked = false;
+    originalPlaylist[originalIndex].liked = false;
   }
   likeButtonRender();
   localStorage.setItem("playlist", JSON.stringify(originalPlaylist));
 }
 
-initializeSong();
+async function startApp() {
+  await loadSongs();
+  initializeSong();
+  addEventListener();
+}
 
 play.addEventListener("click", playPauseDecider);
 previous.addEventListener("click", previousSong);
@@ -194,3 +197,5 @@ progressContainer.addEventListener("click", jumpTo);
 shuffleButton.addEventListener("click", shuffleButtonClicked);
 repeatButton.addEventListener("click", repeatButtonClicked);
 likeButton.addEventListener("click", likeButtonCliked);
+
+startApp();
