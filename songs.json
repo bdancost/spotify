@@ -19,5 +19,19 @@
     "file": "shivers",
     "imageExt": "png",
     "liked": false
+  },
+  {
+    "songName": "Roar",
+    "artist": "Katty Perry",
+    "file": "katty_perry_roar",
+    "imageExt": "png",
+    "liked": false
+  },
+  {
+    "songName": "the_scientist",
+    "artist": "Cold Play",
+    "file": "the_scientist",
+    "imageExt": "png",
+    "liked": false
   }
 ]
