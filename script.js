@@ -184,18 +184,28 @@ function likeButtonCliked() {
 async function startApp() {
   await loadSongs();
   initializeSong();
-  addEventListener();
-}
 
-play.addEventListener("click", playPauseDecider);
-previous.addEventListener("click", previousSong);
-next.addEventListener("click", nextSong);
-song.addEventListener("timeupdate", updateProgress);
-song.addEventListener("ended", nextOrRepeat);
-song.addEventListener("loadedmetadata", updateTotalTime);
-progressContainer.addEventListener("click", jumpTo);
-shuffleButton.addEventListener("click", shuffleButtonClicked);
-repeatButton.addEventListener("click", repeatButtonClicked);
-likeButton.addEventListener("click", likeButtonCliked);
+  play.addEventListener("click", playPauseDecider);
+  previous.addEventListener("click", previousSong);
+  next.addEventListener("click", nextSong);
+  song.addEventListener("timeupdate", updateProgress);
+  song.addEventListener("ended", nextOrRepeat);
+  song.addEventListener("loadedmetadata", updateTotalTime);
+  progressContainer.addEventListener("click", jumpTo);
+  shuffleButton.addEventListener("click", shuffleButtonClicked);
+  repeatButton.addEventListener("click", repeatButtonClicked);
+  likeButton.addEventListener("click", likeButtonCliked);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Evita o comportamento padrão
+      playPauseDecider(); // Tocar ou pausar a música
+    } else if (event.key === "ArrowRight") {
+      nextSong(); // Avançar para a próxima música
+    } else if (event.key === "ArrowLeft") {
+      previousSong(); // Retroceder para a música anterior
+    }
+  });
+}
 
 startApp();
