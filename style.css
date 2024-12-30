@@ -102,3 +102,27 @@ button {
   color: rgb(139, 153, 156);
   margin-top: 0.5em;
 }
+
+@media screen and (max-width: 480px) {
+  body {
+    height: auto;
+  }
+  #song-name {
+    font-size: 1.2em;
+  }
+  #time-box {
+    font-size: smaller;
+  }
+  #progress-container {
+    margin-top: 1em;
+  }
+  #progress-bar {
+    height: 2px;
+  }
+  #button-container {
+    margin-top: 1em;
+  }
+  #below-cover {
+    margin-top: 1em;
+  }
+}
